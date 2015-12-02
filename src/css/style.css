@@ -1,0 +1,104 @@
+#saver-calc {
+  width: 600px;
+  font: 14px normal sans-serif;
+  color: #3E389C;
+  box-sizing: border-box; }
+
+#psc-results, #psc-options {
+  position: absolute; }
+
+#psc-options {
+  width: 330px;
+  padding: 1em;
+  border: 1px solid #3E389C;
+  border-right: 4px ridge #3E389C;
+  border-radius: 4px 0 0 4px;
+  box-shadow: 5px 6px 7px -1px #969696;
+  background: url(../img/concrete.jpg) repeat;
+  z-index: 1; }
+
+.form-group {
+  line-height: 1.4em;
+  vertical-align: middle;
+  box-sizing: border-box;
+  width: 100%; }
+  .form-group:not(:last-child) {
+    margin-bottom: 0.8em; }
+  .form-group input {
+    padding: 5px; }
+  .form-group label, .form-group input, .form-group .suffix {
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle; }
+  .form-group label {
+    width: 10em;
+    margin-right: .1em;
+    padding: 0 .2em; }
+  .form-group input {
+    width: 3em;
+    border: 1px solid #3E389C;
+    border-radius: 4px 0 0 4px; }
+  .form-group input[type=range] {
+    height: .5em;
+    box-shadow: none; }
+  .form-group .suffix {
+    display: inline-block;
+    padding: 5px .5em 3px;
+    background-color: #3E389C;
+    border: 1px #503c3c;
+    border-radius: 0 4px 4px 0;
+    color: #dcdc8c;
+    margin-right: .6em;
+    width: 40px; }
+  .form-group .readonly-control {
+    width: 3em;
+    height: .5em;
+    border: 1px solid #3E389C;
+    font-weight: bolder;
+    font-size: 1.2em;
+    padding: 3px .55em 3px;
+    vertical-align: middle;
+    border-radius: 4px 0 0 4px;
+    background-color: rgba(220, 220, 220, 0.45); }
+
+#psc-results {
+  left: 370px;
+  width: 500px;
+  padding: 1em;
+  background: linear-gradient(to right, whitesmoke, gainsboro 40%, #d9deee 90%, #c7dbdf);
+  border: 1px solid #3E389C;
+  border-radius: 0 4px 4px 4px;
+  z-index: 2; }
+  #psc-results table {
+    width: 100%; }
+    #psc-results table .descriptions {
+      width: 25%;
+      font-weight: bolder;
+      text-align: right; }
+    #psc-results table th {
+      height: 60px;
+      width: 50px; }
+    #psc-results table td {
+      height: 2em;
+      width: 50px; }
+    #psc-results table .incandescent {
+      background: radial-gradient(closest-side at 50%, rgba(255, 255, 255, 0.55), transparent), no-repeat 50% 0/contain url(../img/bulb-types-incadescent.png); }
+    #psc-results table .halogen {
+      background: radial-gradient(closest-side at 50%, rgba(255, 255, 255, 0.55), transparent), no-repeat 50% 0/contain url(../img/bulb-types-halogen.png); }
+    #psc-results table .cfl {
+      background: radial-gradient(closest-side at 50%, rgba(255, 255, 255, 0.55), transparent), no-repeat 50% 0/contain url(../img/bulb-types-cfl.png); }
+    #psc-results table .led {
+      background: radial-gradient(closest-side at 50%, rgba(255, 255, 255, 0.75), transparent), no-repeat 50% 0/contain url(../img/bulb-types-led.png); }
+    #psc-results table .savings {
+      font-weight: bold; }
+
+.ng-invalid {
+  box-shadow: 0px 0px 7px rgba(130, 10, 0, 0.8); }
+
+.ng-valid {
+  box-shadow: 0 0 5px chartreuse; }
+
+.ng-pristine {
+  box-shadow: none; }
+
+/*# sourceMappingURL=style.css.map */

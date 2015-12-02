@@ -1,0 +1,137 @@
+$primary-color: #3E389C;
+$radius: 4px;
+
+#saver-calc {
+  width: 600px;
+  font: 14px normal sans-serif;
+  color: $primary-color;
+  box-sizing: border-box;
+}
+
+#psc-results, #psc-options {
+  position: absolute;
+}
+
+#psc-options {
+  width: 330px;
+  padding: 1em;
+  border: 1px solid $primary-color;
+  border-right: 4px ridge $primary-color;
+  border-radius: $radius 0 0 $radius;
+  box-shadow: 5px 6px 7px -1px rgb(150, 150, 150);
+  background: url(../img/concrete.jpg) repeat;
+  z-index:1;
+}
+
+.form-group {
+  line-height: 1.4em;
+  vertical-align: middle;
+  box-sizing: border-box;
+  width: 100%;
+  &:not(:last-child) {
+    margin-bottom: 0.8em;
+  }
+
+  input {
+    padding: 5px;
+  }
+
+  label, input, .suffix {
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  label {
+    width: 10em;
+    margin-right: .1em;
+    padding: 0 .2em;
+  }
+
+  input {
+    width: 3em;
+    border: 1px solid $primary-color;
+    border-radius: $radius 0 0 $radius;
+  }
+
+  input[type=range] {
+    height: .5em;
+    box-shadow: none;
+  }
+
+  .suffix {
+    display: inline-block;
+    padding: 5px .5em 3px;
+    background-color: $primary-color;
+    border: 1px rgb(80, 60, 60);
+    border-radius: 0 $radius $radius 0;
+    color: rgb(220, 220, 140);
+    margin-right: .6em;
+    width: 40px;
+  }
+
+  .readonly-control {
+    width: 3em;
+    height: .5em;
+    border: 1px solid $primary-color;
+    font-weight: bolder;
+    font-size: 1.2em;
+    padding: 3px .55em 3px;
+    vertical-align: middle;
+    border-radius: $radius 0 0 $radius;
+    background-color: rgba(220, 220, 220, .45);
+  }
+}
+
+#psc-results {
+  left: 370px;
+  width: 500px;
+  padding: 1em;
+  background: linear-gradient(to right, rgb(245,245,245), rgb(220,220,220) 40%, rgb(217, 222, 238) 90%, rgb(199, 219, 223));
+  border: 1px solid $primary-color;
+  border-radius: 0 $radius $radius $radius;
+  z-index: 2;
+  table {
+    width: 100%;
+    .descriptions {
+      width: 25%;
+      font-weight: bolder;
+      text-align: right;
+    }
+    .data {
+    }
+    th {
+      height: 60px;
+      width: 50px;
+    }
+    td {
+      height: 2em;
+      width: 50px;
+    }
+    .incandescent {
+      background:
+        radial-gradient(closest-side at 50%, rgba(255,255,255,.55), transparent),
+        no-repeat 50% 0/contain url(../img/bulb-types-incadescent.png);
+    }
+    .halogen {
+      background:
+        radial-gradient(closest-side at 50%, rgba(255,255,255,.55), transparent),
+        no-repeat 50% 0/contain url(../img/bulb-types-halogen.png);
+    }
+    .cfl {
+      background:
+        radial-gradient(closest-side at 50%, rgba(255,255,255,.55), transparent),
+        no-repeat 50% 0/contain url(../img/bulb-types-cfl.png);
+    }
+    .led {
+      background:
+        radial-gradient(closest-side at 50%, rgba(255,255,255,.75), transparent),
+        no-repeat 50% 0/contain url(../img/bulb-types-led.png);
+    }
+    .savings {font-weight: bold;}
+  }
+}
+
+.ng-invalid {box-shadow: 0px 0px 7px rgba(130, 10, 0, .8);}
+.ng-valid {box-shadow: 0 0 5px chartreuse;}
+.ng-pristine { box-shadow: none;}
