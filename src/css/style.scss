@@ -1,5 +1,12 @@
 $primary-color: #3E389C;
-$radius: 4px;
+$container-border-color: 3px ridge #C6C6CE;
+$radius: 5px;
+
+.container {
+  box-shadow: 5px 6px 7px -1px rgb(150, 150, 150);
+  background: url(../img/concrete.jpg) repeat;
+  border: $container-border-color;
+}
 
 #saver-calc {
   width: 600px;
@@ -15,11 +22,8 @@ $radius: 4px;
 #psc-options {
   width: 330px;
   padding: 1em;
-  border: 1px solid $primary-color;
-  border-right: 4px ridge $primary-color;
+  border-right: 5px ridge $primary-color;
   border-radius: $radius 0 0 $radius;
-  box-shadow: 5px 6px 7px -1px rgb(150, 150, 150);
-  background: url(../img/concrete.jpg) repeat;
   z-index:1;
 }
 
@@ -85,53 +89,74 @@ $radius: 4px;
 
 #psc-results {
   left: 370px;
-  width: 500px;
+  width: 560px;
   padding: 1em;
   background: linear-gradient(to right, rgb(245,245,245), rgb(220,220,220) 40%, rgb(217, 222, 238) 90%, rgb(199, 219, 223));
-  border: 1px solid $primary-color;
   border-radius: 0 $radius $radius $radius;
   z-index: 2;
+  font: 1.1em Tahoma;
   table {
+    border-collapse: collapse;
     width: 100%;
     .descriptions {
       width: 25%;
-      font-weight: bolder;
-      text-align: right;
     }
-    .data {
+    tr {
+      &:nth-child(1) th {
+        height: 1em;
+        padding-bottom: .2em;
+        font-weight: normal;
+      }
+      &:nth-child(2) th {
+        height: 72px;
+        width: 50px;
+        font-size: .7em;
+        vertical-align: bottom;
+      }
+      td {
+        height: 2.4em;
+        width: 50px;
+        padding: .15em 0;
+        &:not(:first-child) {text-align: center;}
+        &:nth-child(1) { // first column with row descriptions
+          font-size: .9em;
+        }
+      }
     }
-    th {
-      height: 60px;
-      width: 50px;
+    tbody tr:not(:last-child) {
+      border-bottom: 1px solid #CED4E0;
     }
-    td {
-      height: 2em;
-      width: 50px;
-    }
+
     .incandescent {
       background:
         radial-gradient(closest-side at 50%, rgba(255,255,255,.55), transparent),
-        no-repeat 50% 0/contain url(../img/bulb-types-incadescent.png);
+        no-repeat 50% 0/50px 60px url(../img/bulb-types-incadescent.png);
     }
     .halogen {
       background:
         radial-gradient(closest-side at 50%, rgba(255,255,255,.55), transparent),
-        no-repeat 50% 0/contain url(../img/bulb-types-halogen.png);
+        no-repeat 50% 0/50px 60px url(../img/bulb-types-halogen.png);
     }
     .cfl {
       background:
         radial-gradient(closest-side at 50%, rgba(255,255,255,.55), transparent),
-        no-repeat 50% 0/contain url(../img/bulb-types-cfl.png);
+        no-repeat 50% 0/50px 60px url(../img/bulb-types-cfl.png);
     }
     .led {
       background:
         radial-gradient(closest-side at 50%, rgba(255,255,255,.75), transparent),
-        no-repeat 50% 0/contain url(../img/bulb-types-led.png);
+        no-repeat 50% 0/50px 60px url(../img/bulb-types-led.png);
     }
     .savings {font-weight: bold;}
   }
 }
 
-.ng-invalid {box-shadow: 0px 0px 7px rgba(130, 10, 0, .8);}
+.footnote {
+  padding: .1em 0;
+  font-size: .6em;
+  margin: 0;
+}
+
+.ng-invalid {box-shadow: 0 0 7px rgba(130, 10, 0, .8);}
 .ng-valid {box-shadow: 0 0 5px chartreuse;}
 .ng-pristine { box-shadow: none;}

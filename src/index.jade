@@ -10,10 +10,10 @@ html(lang="el")
             h3 Υπολογιστής Εξοικονόμησης Ενέργειας
 
             div(ng-controller="CalculatorCtrl")
-                div#psc-options
+                div#psc-options.container
                     div.form-group
                         label(for="kwh-cost") Κόστος KWh
-                        input#kwh-cost(type="text", maxlength="7", value=".1", ng-required="required", ng-model="costKwh", ng-change="costValidator")
+                        input#kwh-cost(type="text", maxlength="7", value=".1", ng-required="required", ng-model="costKwh", ng-change="costValidator()")
                         span.suffix &euro;/KWh
 
                     div.form-group
@@ -38,52 +38,58 @@ html(lang="el")
                         span#annual-use-hours.readonly-control(ng-bind="annualUsageHours")
                         span.suffix(ng-bind="annualUsageHours===1 ? 'ώρα' : 'ώρες'")
 
-                div#psc-results(ng-show="brightness && annualUsageHours")
+                div#psc-results.container(ng-show="arePredicatesValid()")
                     table
                         colgroup.descriptions(span="1")
-                        colgroup.data(span="4")
+
                         thead
                             tr
                                 th
+                                th(colspan="4") Τύποι λαμπτήρων
+                            tr
+                                th
                                 th.incandescent
-                                    span {{bulbs.inc.type}}
+                                    span πυρακτώσεως
                                 th.halogen
-                                    span {{bulbs.hal.type}}
+                                    span αλογόνου
                                 th.cfl
-                                    span {{bulbs.cfl.type}}
+                                    span cfl
                                 th.led
-                                    span {{bulbs.led.type}}
+                                    span led
                         tbody
                             tr
                                 td Ετήσιες ώρες χρήσης
                                 td(colspan="4",style="text-align:center;") {{annualUsageHours}}h
                             tr
                                 td Ισχύς λαμπτήρα
-                                td {{bulbs.inc.power}} W
-                                td {{bulbs.hal.power}} W
-                                td {{bulbs.cfl.power}} W
-                                td {{bulbs.led.power}} W
+                                td {{bulbs.inc.power}}W
+                                td {{bulbs.hal.power}}W
+                                td {{bulbs.cfl.power}}W
+                                td {{bulbs.led.power}}W
                             tr
                                 td Ετήσια κατανάλωση
-                                td {{bulbs.inc.power * annualUsageHours / 1000}} KWh
-                                td {{bulbs.hal.power * annualUsageHours / 1000}} KWh
-                                td {{bulbs.cfl.power * annualUsageHours / 1000}} KWh
-                                td {{bulbs.led.power * annualUsageHours / 1000}} KWh
+                                td {{bulbs.inc.power * annualUsageHours / 1000}}KWh
+                                td {{bulbs.hal.power * annualUsageHours / 1000}}KWh
+                                td {{bulbs.cfl.power * annualUsageHours / 1000}}KWh
+                                td {{bulbs.led.power * annualUsageHours / 1000}}KWh
                             tr
                                 td Τιμή KWh
                                 td(colspan="4",style="text-align:center") {{costKwh}} &euro; / KWh
                             tr
                                 td Ετήσιο κόστος
-                                td {{bulbs.inc.cost}} &euro;
-                                td {{bulbs.hal.cost}} &euro;
-                                td {{bulbs.cfl.cost}} &euro;
-                                td {{bulbs.led.cost}} &euro;
+                                td {{bulbs.inc.cost}}&euro;
+                                td {{bulbs.hal.cost}}&euro;
+                                td {{bulbs.cfl.cost}}&euro;
+                                td {{bulbs.led.cost}}&euro;
                             tr
-                                td Εξοικονόμηση (σε σχέση με πυρακτώσεως)
+                                td Εξοικονόμηση*
                                 td &mdash;
-                                td.savings {{bulbs.hal.savings}} %
-                                td.savings {{bulbs.cfl.savings}} %
-                                td.savings {{bulbs.led.savings}} %
+                                td.savings {{bulbs.hal.savings}}%
+                                td.savings {{bulbs.cfl.savings}}%
+                                td.savings {{bulbs.led.savings}}%
+
+
+                    p.footnote *Σε σχέση με τον αντίστοιχο λαμπτήρα πυρακτώσεως
 
         // SCRIPTS
         script(src="js/angular.min.js")

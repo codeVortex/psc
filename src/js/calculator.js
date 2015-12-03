@@ -1,13 +1,17 @@
 angular.module('PSC', []).
-controller('CalculatorCtrl', ['$scope', '$log', function ($scope, $log) {
+controller('CalculatorCtrl', ['$scope', function ($scope) {
 	$scope.costKwh = .1;
 	$scope.dailyUsageHours = 5;
 	$scope.annualUsageDays = 260;
 	$scope.bulbs = [];
-	$scope.$watchGroup(['brightness', 'dailyUsageHours', 'annualUsageDays'], changeUpdater);
+	$scope.$watchGroup(['brightness', 'dailyUsageHours', 'annualUsageDays', 'costKwh'], changeUpdater);
 
 	$scope.costValidator = function () {
-		$scope.costKwh.replace(',', '.')
+		$scope.costKwh = $scope.costKwh.replace(',', '.');
+	};
+
+	$scope.arePredicatesValid =  function() {
+		return $scope.brightness && isFinite($scope.annualUsageHours);
 	};
 
 	function updateResults() {
@@ -16,7 +20,7 @@ controller('CalculatorCtrl', ['$scope', '$log', function ($scope, $log) {
 		['inc', 'hal', 'cfl', 'led'].forEach(function (type) {
 			var
 				power = wattages[type],
-				consumption = $scope.annualUsageHours * power / 1000,
+				consumption = Math.round($scope.annualUsageHours * power / 1000 * 100) / 100,
 				cost = Math.round(consumption * $scope.costKwh * 100)/100,
 				savings = (type !== 'inc' ? Math.round((bulbs.inc.cost - cost) / bulbs.inc.cost * 100) : 0);
 			bulbs[type] = {
@@ -29,8 +33,11 @@ controller('CalculatorCtrl', ['$scope', '$log', function ($scope, $log) {
 	}
 
 	function changeUpdater(newValues, oldValues, scope) {
-		scope.annualUsageHours = newValues[1] * newValues[2];
-		if (isFinite(newValues[0]) && isFinite(scope.annualUsageHours))
+		if (isFinite(newValues[1]) && isFinite(newValues[2]))
+			scope.annualUsageHours = newValues[1] * newValues[2];
+		else
+			scope.annualUsageHours = " \u2014 ";
+		if (isFinite(newValues[0]) && isFinite(scope.annualUsageHours) && isFinite(newValues[3]))
 			updateResults();
 	}
 

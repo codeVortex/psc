@@ -9,10 +9,10 @@
     <div id="saver-calc" ng-app="PSC">
       <h3>Υπολογιστής Εξοικονόμησης Ενέργειας</h3>
       <div ng-controller="CalculatorCtrl">
-        <div id="psc-options">
+        <div id="psc-options" class="container">
           <div class="form-group">
             <label for="kwh-cost">Κόστος KWh</label>
-            <input id="kwh-cost" type="text" maxlength="7" value=".1" ng-required="required" ng-model="costKwh" ng-change="costValidator"><span class="suffix">&euro;/KWh</span>
+            <input id="kwh-cost" type="text" maxlength="7" value=".1" ng-required="required" ng-model="costKwh" ng-change="costValidator()"><span class="suffix">&euro;/KWh</span>
           </div>
           <div class="form-group">
             <label for="brightness-target">Επιθυμητή Φωτεινότητα</label>
@@ -32,17 +32,20 @@
             <label for="annual-use-hours">Ετήσια χρήση</label><span id="annual-use-hours" ng-bind="annualUsageHours" class="readonly-control"></span><span ng-bind="annualUsageHours===1 ? 'ώρα' : 'ώρες'" class="suffix"></span>
           </div>
         </div>
-        <div id="psc-results" ng-show="brightness &amp;&amp; annualUsageHours">
+        <div id="psc-results" ng-show="arePredicatesValid()" class="container">
           <table>
             <colgroup span="1" class="descriptions"></colgroup>
-            <colgroup span="4" class="data"></colgroup>
             <thead>
               <tr>
                 <th></th>
-                <th class="incandescent"><span>{{bulbs.inc.type}}</span></th>
-                <th class="halogen"><span>{{bulbs.hal.type}}</span></th>
-                <th class="cfl"><span>{{bulbs.cfl.type}}</span></th>
-                <th class="led"><span>{{bulbs.led.type}}</span></th>
+                <th colspan="4">Τύποι λαμπτήρων</th>
+              </tr>
+              <tr>
+                <th></th>
+                <th class="incandescent"><span>πυρακτώσεως</span></th>
+                <th class="halogen"><span>αλογόνου</span></th>
+                <th class="cfl"><span>cfl</span></th>
+                <th class="led"><span>led</span></th>
               </tr>
             </thead>
             <tbody>
@@ -52,17 +55,17 @@
               </tr>
               <tr>
                 <td>Ισχύς λαμπτήρα</td>
-                <td>{{bulbs.inc.power}} W</td>
-                <td>{{bulbs.hal.power}} W</td>
-                <td>{{bulbs.cfl.power}} W</td>
-                <td>{{bulbs.led.power}} W</td>
+                <td>{{bulbs.inc.power}}W</td>
+                <td>{{bulbs.hal.power}}W</td>
+                <td>{{bulbs.cfl.power}}W</td>
+                <td>{{bulbs.led.power}}W</td>
               </tr>
               <tr>
                 <td>Ετήσια κατανάλωση</td>
-                <td>{{bulbs.inc.power * annualUsageHours / 1000}} KWh</td>
-                <td>{{bulbs.hal.power * annualUsageHours / 1000}} KWh</td>
-                <td>{{bulbs.cfl.power * annualUsageHours / 1000}} KWh</td>
-                <td>{{bulbs.led.power * annualUsageHours / 1000}} KWh</td>
+                <td>{{bulbs.inc.power * annualUsageHours / 1000}}KWh</td>
+                <td>{{bulbs.hal.power * annualUsageHours / 1000}}KWh</td>
+                <td>{{bulbs.cfl.power * annualUsageHours / 1000}}KWh</td>
+                <td>{{bulbs.led.power * annualUsageHours / 1000}}KWh</td>
               </tr>
               <tr>
                 <td>Τιμή KWh</td>
@@ -70,20 +73,21 @@
               </tr>
               <tr>
                 <td>Ετήσιο κόστος</td>
-                <td>{{bulbs.inc.cost}} &euro;</td>
-                <td>{{bulbs.hal.cost}} &euro;</td>
-                <td>{{bulbs.cfl.cost}} &euro;</td>
-                <td>{{bulbs.led.cost}} &euro;</td>
+                <td>{{bulbs.inc.cost}}&euro;</td>
+                <td>{{bulbs.hal.cost}}&euro;</td>
+                <td>{{bulbs.cfl.cost}}&euro;</td>
+                <td>{{bulbs.led.cost}}&euro;</td>
               </tr>
               <tr>
-                <td>Εξοικονόμηση (σε σχέση με πυρακτώσεως)</td>
+                <td>Εξοικονόμηση*</td>
                 <td>&mdash;</td>
-                <td class="savings">{{bulbs.hal.savings}} %</td>
-                <td class="savings">{{bulbs.cfl.savings}} %</td>
-                <td class="savings">{{bulbs.led.savings}} %</td>
+                <td class="savings">{{bulbs.hal.savings}}%</td>
+                <td class="savings">{{bulbs.cfl.savings}}%</td>
+                <td class="savings">{{bulbs.led.savings}}%</td>
               </tr>
             </tbody>
           </table>
+          <p class="footnote">*Σε σχέση με τον αντίστοιχο λαμπτήρα πυρακτώσεως</p>
         </div>
       </div>
     </div>

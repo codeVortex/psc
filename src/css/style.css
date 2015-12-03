@@ -1,3 +1,8 @@
+.container {
+  box-shadow: 5px 6px 7px -1px #969696;
+  background: url(../img/concrete.jpg) repeat;
+  border: 3px ridge #C6C6CE; }
+
 #saver-calc {
   width: 600px;
   font: 14px normal sans-serif;
@@ -10,11 +15,8 @@
 #psc-options {
   width: 330px;
   padding: 1em;
-  border: 1px solid #3E389C;
-  border-right: 4px ridge #3E389C;
-  border-radius: 4px 0 0 4px;
-  box-shadow: 5px 6px 7px -1px #969696;
-  background: url(../img/concrete.jpg) repeat;
+  border-right: 5px ridge #3E389C;
+  border-radius: 5px 0 0 5px;
   z-index: 1; }
 
 .form-group {
@@ -37,7 +39,7 @@
   .form-group input {
     width: 3em;
     border: 1px solid #3E389C;
-    border-radius: 4px 0 0 4px; }
+    border-radius: 5px 0 0 5px; }
   .form-group input[type=range] {
     height: .5em;
     box-shadow: none; }
@@ -46,7 +48,7 @@
     padding: 5px .5em 3px;
     background-color: #3E389C;
     border: 1px #503c3c;
-    border-radius: 0 4px 4px 0;
+    border-radius: 0 5px 5px 0;
     color: #dcdc8c;
     margin-right: .6em;
     width: 40px; }
@@ -58,42 +60,59 @@
     font-size: 1.2em;
     padding: 3px .55em 3px;
     vertical-align: middle;
-    border-radius: 4px 0 0 4px;
+    border-radius: 5px 0 0 5px;
     background-color: rgba(220, 220, 220, 0.45); }
 
 #psc-results {
   left: 370px;
-  width: 500px;
+  width: 560px;
   padding: 1em;
   background: linear-gradient(to right, whitesmoke, gainsboro 40%, #d9deee 90%, #c7dbdf);
-  border: 1px solid #3E389C;
-  border-radius: 0 4px 4px 4px;
-  z-index: 2; }
+  border-radius: 0 5px 5px 5px;
+  z-index: 2;
+  font: 1.1em Tahoma; }
   #psc-results table {
+    border-collapse: collapse;
     width: 100%; }
     #psc-results table .descriptions {
-      width: 25%;
-      font-weight: bolder;
-      text-align: right; }
-    #psc-results table th {
-      height: 60px;
-      width: 50px; }
-    #psc-results table td {
-      height: 2em;
-      width: 50px; }
+      width: 25%; }
+    #psc-results table tr:nth-child(1) th {
+      height: 1em;
+      padding-bottom: .2em;
+      font-weight: normal; }
+    #psc-results table tr:nth-child(2) th {
+      height: 72px;
+      width: 50px;
+      font-size: .7em;
+      vertical-align: bottom; }
+    #psc-results table tr td {
+      height: 2.4em;
+      width: 50px;
+      padding: .15em 0; }
+      #psc-results table tr td:not(:first-child) {
+        text-align: center; }
+      #psc-results table tr td:nth-child(1) {
+        font-size: .9em; }
+    #psc-results table tbody tr:not(:last-child) {
+      border-bottom: 1px solid #CED4E0; }
     #psc-results table .incandescent {
-      background: radial-gradient(closest-side at 50%, rgba(255, 255, 255, 0.55), transparent), no-repeat 50% 0/contain url(../img/bulb-types-incadescent.png); }
+      background: radial-gradient(closest-side at 50%, rgba(255, 255, 255, 0.55), transparent), no-repeat 50% 0/50px 60px url(../img/bulb-types-incadescent.png); }
     #psc-results table .halogen {
-      background: radial-gradient(closest-side at 50%, rgba(255, 255, 255, 0.55), transparent), no-repeat 50% 0/contain url(../img/bulb-types-halogen.png); }
+      background: radial-gradient(closest-side at 50%, rgba(255, 255, 255, 0.55), transparent), no-repeat 50% 0/50px 60px url(../img/bulb-types-halogen.png); }
     #psc-results table .cfl {
-      background: radial-gradient(closest-side at 50%, rgba(255, 255, 255, 0.55), transparent), no-repeat 50% 0/contain url(../img/bulb-types-cfl.png); }
+      background: radial-gradient(closest-side at 50%, rgba(255, 255, 255, 0.55), transparent), no-repeat 50% 0/50px 60px url(../img/bulb-types-cfl.png); }
     #psc-results table .led {
-      background: radial-gradient(closest-side at 50%, rgba(255, 255, 255, 0.75), transparent), no-repeat 50% 0/contain url(../img/bulb-types-led.png); }
+      background: radial-gradient(closest-side at 50%, rgba(255, 255, 255, 0.75), transparent), no-repeat 50% 0/50px 60px url(../img/bulb-types-led.png); }
     #psc-results table .savings {
       font-weight: bold; }
 
+.footnote {
+  padding: .1em 0;
+  font-size: .6em;
+  margin: 0; }
+
 .ng-invalid {
-  box-shadow: 0px 0px 7px rgba(130, 10, 0, 0.8); }
+  box-shadow: 0 0 7px rgba(130, 10, 0, 0.8); }
 
 .ng-valid {
   box-shadow: 0 0 5px chartreuse; }
