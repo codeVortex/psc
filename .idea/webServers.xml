@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3b4f0f6a-422e-47e1-ad2e-6514f220abc2" name="Northweb" url="http://lychnosled.gr/">
+        <fileTransfer host="lychnosled.gr" port="21" rootFolder="/thanos" password="dffcdf9bdfc9dfc3dfc5dfdfdfd9df92dfcbdfc1dfd8dfcbdfe1" username="thanos">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

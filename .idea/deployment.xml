@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" uploadOnCheckin="7c2ce3fa-13e8-4d39-b104-b2635ea8376b">
+  <component name="PublishConfigData" serverName="Northweb" uploadOnCheckin="7c2ce3fa-13e8-4d39-b104-b2635ea8376b">
     <serverData>
       <paths name="IIS">
         <serverdata>
@@ -13,6 +13,13 @@
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="Northweb">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/lychnosled.gr/wwwroot/widgets/psc" local="$PROJECT_DIR$/src/" web="/widgets/psc" />
           </mappings>
         </serverdata>
       </paths>
